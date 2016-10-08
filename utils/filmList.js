@@ -1,6 +1,6 @@
-import React, {
+import React, { Component } from 'react';
+import {
     AppRegistry,
-    Component,
     StyleSheet,
     Text,
     View,
@@ -46,8 +46,8 @@ class List extends Component {
         this.fetchData();
     }
     fetchData() {
-         var url = "http://xxx/movie/list.json?type=hot&offset=0&limit=1000"
-        fetch(films)
+         var url = "http://m.maoyan.com/movie/list.json?type=hot&offset=0&limit=1000"
+        fetch(url)
             .then((response) => response.json())
             .then((responseData) => {
                 this.setState({

@@ -1,6 +1,6 @@
-import React, {
+import React, { Component } from 'react';
+import {
     AppRegistry,
-    Component,
     StyleSheet,
     Text,
     View,
@@ -32,7 +32,7 @@ export default class filmInfo extends Component {
         this.fetchData();
     }
     fetchData() {
-        var url = "http:/xxx/movie/" + this.props.id + ".json";
+        var url = "http://m.maoyan.com/movie/" + this.props.id + ".json";
         fetch(url)
             .then((response) => response.json())
             .then((responseData) => {

@@ -1,6 +1,6 @@
-import React, {
+import React, { Component } from 'react';
+import {
     AppRegistry,
-    Component,
     StyleSheet,
     Text,
     View,
@@ -29,7 +29,7 @@ export default class moreComment extends Component {
         this.fetchData();
     }
     fetchData() {
-        var url = "http://xxx/mmdb/comments/movie/" + this.props.id + ".json?_v_=yes&offset="+num;
+        var url = "http://m.maoyan.com/mmdb/comments/movie/" + this.props.id + ".json?_v_=yes&offset="+num;
         this.setState({loading:true});
         fetch(url)
             .then((response) => response.json())

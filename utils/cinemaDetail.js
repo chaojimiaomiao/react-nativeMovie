@@ -1,5 +1,5 @@
-import React, {
-    Component,
+import React, { Component } from 'react';
+import {
     StyleSheet,
     Text,
     View,
@@ -36,7 +36,7 @@ export default class cinemaDetail extends Component {
     }
     fetchData(_id) {
         var id = _id;
-        var url = "http://xxx/showtime/wrap.json?cinemaid=" + this.props.id + "&movieid=" + id;
+        var url = "http://m.maoyan.com/showtime/wrap.json?cinemaid=" + this.props.id + "&movieid=" + id;
         if (_id != "") {
             this.setState({
                 loading: true,

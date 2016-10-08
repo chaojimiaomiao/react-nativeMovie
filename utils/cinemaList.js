@@ -1,6 +1,6 @@
-import React, {
+import React, { Component } from 'react';
+import {
     AppRegistry,
-    Component,
     StyleSheet,
     Text,
     View,
@@ -26,7 +26,7 @@ export default class cinemaList extends Component {
         this.fetchData();
     }
     fetchData() {
-       var url = "http://xxx/cinemas.json"
+       var url = "http://m.maoyan.com/cinemas.json"
         fetch(url)
             .then((response) => response.json())
             .then((responseData) => {
