@@ -18,7 +18,7 @@ var movieIndex = 0, dateIndex = 0;
 var date = new Date();
 var month = date.getMonth() + 1;
 month = (month) < 10 ? "0" + month : month;
-var initDate = date.getFullYear() + "-" + month + "-" + date.getDate();
+var initDate = date.getFullYear() + "-" + month + "-0" + date.getDate();
 export default class cinemaDetail extends Component {
     constructor(props) {
         super(props);
