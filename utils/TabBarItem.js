@@ -22,16 +22,20 @@ export default class TabBar extends Component {
         }
         if (image != null) {
             var itemImage = (
-                <Image style={styles.image} source={image}/>
+                <Image style={styles.image} source={image}
+                />
             )
         }
         return (
             <TouchableHighlight style={styles.tabNav}              
                 underlayColor="#B5B5B5"
-                onPress={this.props.onPress}>
+                //onPress={this.props.onPress}
+                onPress={() => {
+                        this.props.onPress;
+                    }}
+                >
                 <View style={styles.item}>
                     {itemImage}
-                    {itemTitle}
                 </View>
             </TouchableHighlight>
         );
@@ -53,7 +57,9 @@ var styles = StyleSheet.create({
     item: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        width: 48,
+        height: 48,
     },  
    
     image: {

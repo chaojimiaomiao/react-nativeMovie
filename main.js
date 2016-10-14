@@ -68,29 +68,33 @@ export default class film extends Component {
             <View style={styles.tabs }>
                 <TabBarItem
                     underlayColor="#B5B5B5"
-                    image={require("./images/film.png") }
-                    title="影片"
+                    image={require("./img/icon_menu_homeon.png") }
+                    title="发现"
                     onPress={() => {
                         this.onTabIndex(0);
-                         this.setState({tabIndex:0})
+                         this.setState({tabIndex:0});
+                         image = require("./img/icon_menu_home.png")
                     } }>
                     ></TabBarItem>
                 <TabBarItem
                     underlayColor="#B5B5B5"
-                    image={require("./images/cinema.png") }
-                    title="影院"
+                    image={require("./img/icon_menu_film.png") }
+                    title="电影"
+                    fengle="疯了"
                     onPress={() => {
                         this.onTabIndex(1);
-                         this.setState({tabIndex:1})
+                         this.setState({tabIndex:1});
+                         image = require("./img/icon_menu_filmon.png")
                     } }>
                     ></TabBarItem>
                  <TabBarItem
                     underlayColor="#B5B5B5"
-                    image={require("./images/me.png") }
-                    title="我"
+                    image={require("./img/icon_menu_activity.png") }
+                    title="演出"
                     onPress={() => {
                         this.onTabIndex(2);
                         this.setState({tabIndex:2})
+                        image = require("./img/icon_menu_activityon.png")
                     } }>
                     ></TabBarItem>
             </View>

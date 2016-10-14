@@ -17,7 +17,10 @@ export default class film extends Component {
   constructor(props, params) {
         super(props);
         this.state = {
-            tabIndex: 0
+            tabIndex: 0,
+            imgDiscover: false,
+            imgMovie: false,
+            imgShow: false,
         }
     }
   render() {
@@ -51,35 +54,21 @@ export default class film extends Component {
   }
 
   TabBar() {
+      var discover = this.state.imgDiscover ? require('./img/icon_menu_homeon.png') : require('./img/icon_menu_home.png');
     return (
       <View style = {styles.tabs}>
         <TabBarItem
-            underlayColor="#B5B5B5"
-            image={require("./images/film.png") }
-            title="影片"
-            onPress={() => {
-                this.onTabIndex(0);
-                this.setState({tabIndex:0})
-            } }>
-         ></TabBarItem>
-          <TabBarItem
-              underlayColor="#B5B5B5"
-              image={require("./images/cinema.png") }
-              title="影院"
-              onPress={() => {
-                  this.onTabIndex(1);
-                  this.setState({tabIndex:1})
-              } }>
-          ></TabBarItem>
-          <TabBarItem
-              underlayColor="#B5B5B5"
-              image={require("./images/me.png") }
-              title="我"
-              onPress={() => {
-                  this.onTabIndex(2);
-                  this.setState({tabIndex:2})
-              } }>
-            ></TabBarItem>
+                    underlayColor="#B5B5B5"
+                    image={discover}
+                    title="发现"
+                    onPress={() => {
+                        this.onTabIndex(0);
+                         this.setState({tabIndex:0, 
+                             imgDiscover: !imgDiscover
+                            });
+                    } }>
+                    ></TabBarItem>
+                
       </View>
     );
   }
