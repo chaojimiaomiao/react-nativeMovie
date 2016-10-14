@@ -1,5 +1,5 @@
 ## Example App
 
-This is a small example app to test sglistview.
+This is a small example app to write a movie client.
 
-**NOTE**: The app requires the clientId/clientVersion for making the api call which isn't under Version Control... so the app probably won't work for you :(
+Waiting for complete...
