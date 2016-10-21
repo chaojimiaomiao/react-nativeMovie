@@ -5,6 +5,9 @@ import {
     Text,
     View,
     Navigator,
+    Image,
+    TouchableHighlight,
+    TouchableOpacity,
 } from 'react-native';
 
 import MyScene from './MyScene';
@@ -12,34 +15,46 @@ import Main from "./utils/pageNav";
 import CinemaNav from "./utils/cinemaNav";
 import User from "./utils/user";
 import TabBarItem from "./utils/TabBarItem";
+import ImageButton from "./utils/imageButton";
 
 export default class film extends Component {
   constructor(props, params) {
         super(props);
         this.state = {
             tabIndex: 0,
+            selected: false,
             imgDiscover: false,
             imgMovie: false,
             imgShow: false,
         }
     }
   render() {
-    return (
-      <Navigator
-            initialRoute={ROUTE_STACK[routeIndex]}
-            // configureScene={(route) => {
-            //     return Navigator.SceneConfigs.FadeAndroid;
-            // } }
-            renderScene={this.renderScene}
-            navigationBar={
-                this.TabBar()
-            }
-            initialRouteStack={ROUTE_STACK}
-            ref={(navigator) => {
-                this._navigator = navigator;
-            }}
-      />
-    );
+      return (
+          <ImageButton
+            selectedImage = {require('./img/icon_menu_homeon.png')}
+            normalImage = {require('./img/icon_menu_home.png')}
+          >
+          </ImageButton>
+      );
+    // var image = this.state.selected ? require('./img/icon_menu_homeon.png') : require('./img/icon_menu_home.png');
+    // return (
+    //     <TouchableOpacity
+    //         onPressIn={() => {
+    //             this.setState( {
+    //                 selected: true,
+    //             });
+    //         }}
+    //         onPressOut={() => {
+    //             this.setState( {
+    //                 selected: false,
+    //             });
+    //         }}
+    //        >
+    //         <Image  
+    //             style={styles.image} source={image}>
+    //         </Image>
+    //       </TouchableOpacity>
+    // );
   }
   
   renderScene(route, navigator) {
@@ -73,11 +88,32 @@ export default class film extends Component {
     );
   }
 
+  renderButton() {
+      return (
+          <TouchableOpacity
+            onPressIn={() => {
+                this.setState( {
+                    selected: true,
+                });
+            }}
+            onPressOut={() => {
+                this.setState( {
+                    selected: false,
+                });
+            }}
+           >
+          </TouchableOpacity >
+      );
+  }
+
   onTabIndex(_index){        
         routeIndex = _index;
         // this._navigator.jumpTo(ROUTE_STACK[routeIndex]);
     }
+
+
 }
+
 
 var routeIndex = 0;
 
@@ -96,7 +132,13 @@ var ROUTE_STACK = [
 const styles = StyleSheet.create({
     tabs:{
         flexDirection:"row"
-    }
+    },
+    image: {
+        width: 100,
+        height: 100,
+        marginTop: 20,
+        resizeMode: Image.resizeMode.stretch,
+    },
 });
 
 AppRegistry.registerComponent('AwesomeProject', () => film);

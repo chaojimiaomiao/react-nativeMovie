@@ -6,6 +6,7 @@ import {
     View,
     Image,
     TouchableHighlight,
+    TouchableOpacity,
 } from 'react-native';
  
 export default class TabBar extends Component {
@@ -23,21 +24,23 @@ export default class TabBar extends Component {
         if (image != null) {
             var itemImage = (
                 <Image style={styles.image} source={image}
+                ref = "imageIcon"
                 />
             )
         }
         return (
-            <TouchableHighlight style={styles.tabNav}              
+            <TouchableOpacity style={styles.tabNav}              
                 underlayColor="#B5B5B5"
                 //onPress={this.props.onPress}
                 onPress={() => {
                         this.props.onPress;
+
                     }}
                 >
                 <View style={styles.item}>
                     {itemImage}
                 </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
         );
     }
 }
